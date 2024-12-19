@@ -1,4 +1,4 @@
-from secret_file import API_KEY
+
 import pandas as pd
 from chromadb import Client
 import chromadb.utils.embedding_functions as embedding_function
