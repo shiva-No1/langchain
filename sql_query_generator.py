@@ -1,3 +1,4 @@
+
 import pandas as pd
 from chromadb import PersistentClient
 import chromadb.utils.embedding_functions as embedding_function
@@ -7,8 +8,7 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.schema import Document
 import streamlit as st
 
-OPENAI_API_KEY = "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"
-
+OPENAI_API_KEY = API_KEY
 openai_emb = embedding_function.OpenAIEmbeddingFunction(
     api_key=OPENAI_API_KEY, model_name="text-embedding-ada-002"
 )
