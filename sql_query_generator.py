@@ -7,10 +7,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains.question_answering import load_qa_chain
 from langchain.schema import Document
 import streamlit as st
-import toml
 
-config = toml.load("config.toml")
-API_KEY = config["api"]["key"]
 OPENAI_API_KEY = API_KEY
 
 openai_emb = embedding_function.OpenAIEmbeddingFunction(
