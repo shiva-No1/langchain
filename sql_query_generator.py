@@ -1,6 +1,5 @@
-
 import pandas as pd
-from chromadb import PersistentClient
+from chromadb import Client
 import chromadb.utils.embedding_functions as embedding_function
 from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
@@ -24,8 +23,9 @@ def excel_file_extract(data):
         return None
 
 # Function to Embed Data into ChromaDB
+client = Client()
 def openai_embedding(df, batch_size=10):
-    client = PersistentClient(path="chroma_vector_data/")
+    client = client(path="chroma_vector_data/")
     collection = client.get_or_create_collection(
         name="excel_collection", embedding_function=openai_emb
     )
@@ -129,5 +129,3 @@ def main():
                 st.markdown(answer)
 
 main()
-
-
