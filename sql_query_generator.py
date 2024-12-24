@@ -8,7 +8,7 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.schema import Document
 import streamlit as st
 
-OPENAI_API_KEY = st.secrets("API_KEY")
+OPENAI_API_KEY = st.secrets ["API_KEY"]
 
 openai_emb = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY, model="text-embedding-ada-002")
 
