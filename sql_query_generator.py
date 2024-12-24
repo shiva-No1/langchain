@@ -1,5 +1,7 @@
+
 import pandas as pd
-from chromadb import Client
+from secret_file import API_KEY
+from chromadb import PersistentClient
 import chromadb.utils.embedding_functions as embedding_function
 from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
@@ -7,7 +9,7 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.schema import Document
 import streamlit as st
 
-OPENAI_API_KEY = st.secrets["API_KEY"]
+OPENAI_API_KEY = API_KEY
 
 openai_emb = embedding_function.OpenAIEmbeddingFunction(
     api_key=OPENAI_API_KEY, model_name="text-embedding-ada-002"
@@ -23,9 +25,8 @@ def excel_file_extract(data):
         return None
 
 # Function to Embed Data into ChromaDB
-client = Client()
 def openai_embedding(df, batch_size=10):
-    client = client(path="chroma_vector_data/")
+    client = PersistentClient(path="chroma_vector_data/")
     collection = client.get_or_create_collection(
         name="excel_collection", embedding_function=openai_emb
     )
@@ -129,3 +130,5 @@ def main():
                 st.markdown(answer)
 
 main()
+
+
