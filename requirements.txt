@@ -6,6 +6,6 @@ langchain_community
 toml
 faiss-gpu==1.7.2
 openpyxl
-
+tiktoken
 
 
