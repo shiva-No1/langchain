@@ -1,7 +1,9 @@
 pandas>=1.5.0
-chromadb>=0.3.0
 langchain>=0.0.200
 openai>=0.27.0
 streamlit>=1.20.0
 langchain_community
 toml
+faiss-cpu==1.7.4
+
+
