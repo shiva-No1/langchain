@@ -1,6 +1,5 @@
 
 import pandas as pd
-from secret_file import API_KEY
 from chromadb import PersistentClient
 import chromadb.utils.embedding_functions as embedding_function
 from langchain_community.chat_models import ChatOpenAI
